@@ -4,4 +4,4 @@
 
 # Documentação
 
- O passo a passo para instalação e configuração está disponível em: [LaPSI 5GLab](https://sites.google.com/dee.ufcg.edu.br/lapsi-5glab)
+ A documentação está disponível em: [LaPSI 5GLab](https://sites.google.com/dee.ufcg.edu.br/lapsi-5glab)
