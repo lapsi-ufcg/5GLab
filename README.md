@@ -2,4 +2,4 @@
 
 # Documentação
 
-A documentação elaborada pela equipe do LaPSI pode ser encontrada em: https://sites.google.com/dee.ufcg.edu.br/lapsi-5glab
+A documentação elaborada pela equipe do LaPSI pode ser encontrada em: [Documentação](https://sites.google.com/dee.ufcg.edu.br/lapsi-5glab)
