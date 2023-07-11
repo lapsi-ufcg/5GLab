@@ -1,0 +1,77 @@
+﻿=========================================
+
+Instalação bladeRF: https://github.com/Nuand/bladeRF/wiki
+
+sudo add-apt-repository ppa:nuandllc/bladerf
+sudo apt-get update
+sudo apt-get install libbladerf-dev
+
+sudo apt-get install libusb-1.0-0-dev libusb-1.0-0 build-essential cmake libncurses5-dev libtecla1 libtecla-dev pkg-config git wget
+
+dpkg -s libusb-1.0-0 libusb-1.0-0-dev %% verificar versão certa da lib 
+
+sudo apt-get install doxygen help2man pandoc
+
+git clone https://github.com/Nuand/bladeRF.git ./bladeRF
+cd ./bladerf
+ls
+
+git pull
+
+cd host
+mkdir build
+cd build
+
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DINSTALL_UDEV_RULES=ON ../
+
+groups
+sudo groupadd bladerf
+sudo usermod -a -G bladerf USUÁRIO
+
+make && sudo make install && sudo ldconfig
+
+sudo apt-get install bladerf-firmware-fx3
+
+sudo apt-get install bladerf-fpga-hostedxa4  %% escolher qual versão a depender da placa
+
+sudo apt-get install bladerf-fpga-hostedxa9  %% escolher qual versão a depender da placa
+
+=========================================
+
+OBS: a partir do GNU Radio 3.10 há a seção 'Soapy', que disponibiliza SINK e SOURCE para a bladeRF, mas com limitações.
+
+=========================================
+
+Blocos GNU Radio 'gr-osmosdr': https://github.com/osmocom/gr-osmosdr; https://osmocom.org/projects/gr-osmosdr/wiki/GrOsmoSDR
+
+git clone git://git.osmocom.org/gr-osmosdr
+cd gr-osmosdr/
+mkdir build
+cd build/
+cmake ../
+make
+sudo make install
+sudo ldconfig
+
+cd build/
+cmake ../ -DENABLE_DOXYGEN=1
+make -C docs
+
+=========================================
+
+Blocos GNU Radio 'gr-bladeRF': https://github.com/Nuand/gr-bladeRF
+
+git clone https://github.com/Nuand/gr-bladeRF.git
+cd gr-bladeRF
+mkdir build
+cd build
+cmake ..
+make -j4
+sudo make install
+
+-> Exemplo:
+
+cd ~
+gnuradio-companion gr-bladeRF/apps/fm_receiver.grc
+
+=========================================
